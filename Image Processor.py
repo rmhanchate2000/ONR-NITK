@@ -52,7 +52,11 @@ for ctr in ctrs:
     img3 = np.asarray(img2)
     
     #resizing
-    img4 = cv2.resize(img3, (28, 28), interpolation = cv2.INTER_AREA)
+    img4 = cv2.resize(img3, (20, 20), interpolation = cv2.INTER_AREA)
+    
+    #padding
+    BLACK = [0, 0, 0]
+    img4= cv2.copyMakeBorder(img4,4,4,4,4,cv2.BORDER_CONSTANT,value=BLACK)
     
     #writetime
     cv2.imwrite('D:\\NITK\\Python\\crop\\res\\' + str(idx) + '.jpg', img4)
